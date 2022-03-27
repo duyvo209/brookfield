@@ -1,4 +1,12 @@
-import { Box, TextField, Grid, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  TextField,
+  Grid,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import React from "react";
 import Logo from "../../assets/images/logo.jpeg";
 import { useStyles } from "./style";
@@ -12,7 +20,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-
 
 const Header = () => {
   const classes = useStyles();
@@ -46,13 +53,24 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
+  const theme = useTheme();
+  const matchesMd = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <div>
       <Box>
         <Box className={classes.headerTop}>
           <Box className={classes.headerContainer}>
             <Grid container spacing={1} my={1}>
-              <Grid item md={6} xs={12}>
+              <Grid
+                item
+                md={6}
+                xs={12}
+                style={{
+                  display: matchesMd ? "flex" : "",
+                  justifyContent: matchesMd ? "center" : "",
+                }}
+              >
                 <Stack
                   alignItems="flex-start"
                   justifyContent="center"
@@ -61,13 +79,21 @@ const Header = () => {
                   <img src={Logo} alt="Logo" />
                 </Stack>
               </Grid>
-              <Grid item md={6} xs={12}>
+              <Grid
+                item
+                md={6}
+                xs={12}
+                style={{
+                  display: matchesMd ? "flex" : "",
+                  justifyContent: matchesMd ? "center" : "",
+                }}
+              >
                 <Stack
                   alignItems="flex-end"
                   justifyContent="center"
                   height="100%"
                 >
-                  <Box style={{ marginTop: "8px" }}>
+                  <Box>
                     <span>Service & Repair: </span>
                     <span className={classes.contact}>0329545822</span>
                   </Box>
@@ -76,7 +102,7 @@ const Header = () => {
                     variant="outlined"
                     size="small"
                     fullWidth={false}
-                    sx={{ width: 260 }}
+                    sx={{ width: 260, marginTop: "8px" }}
                   />
                 </Stack>
               </Grid>

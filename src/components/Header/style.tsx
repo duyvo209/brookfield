@@ -1,4 +1,5 @@
-import { Theme } from "@mui/material";
+// import { Theme } from "@mui/material";
+import { Theme } from "@mui/material/styles";
 import { createStyles, makeStyles } from "@mui/styles";
 
 export const useStyles = makeStyles((theme: Theme) =>
@@ -12,6 +13,12 @@ export const useStyles = makeStyles((theme: Theme) =>
       maxWidth: "1200px",
       width: "100%",
       px: 2,
+    },
+    headerContact: {
+      // [theme.breakpoints.down("sm")]: {
+      //   display: "flex",
+      //   justifyContent: "center",
+      // },
     },
     contact: {
       fontSize: 22,
